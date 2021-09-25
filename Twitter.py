@@ -14,9 +14,11 @@ class TwitterAPI:
     def get_self_timeline(self):
         return self._api.home_timeline()
 
-    def get_timeline_for_user(self, username: str, max_number: int) -> list:
+    def get_timeline_for_user(self,
+                              username: str,
+                              max_number: int = 20) -> list:
         all_tweets = []
-        tweet_batch = []
+        tweet_batch = ['start']
         retrieved = 0
 
         if max_number < self._batch_size:
@@ -24,7 +26,7 @@ class TwitterAPI:
                                                  count=max_number)
             return all_tweets
 
-        while len(tweet_batch) > 0 or retrieved < max_number:
+        while retrieved < max_number:
 
             # Tests if this is the first time the API is being called
             if retrieved == 0:
