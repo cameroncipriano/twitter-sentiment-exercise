@@ -1,0 +1,6 @@
+As a user, I should be able to input any Twitter Handle I want
+As a user, I should be able to define how many tweets I will see analysis of
+As a user, I should see a visual representation of the person's tweets
+As a user, I should always retrieve the number of tweets requested
+As a user, I should be told nicely if something doesn't execute correctly or if there was a problem
+As a user, I should be able to retry if something fails
