@@ -1,8 +1,10 @@
+from dotenv import load_dotenv
+import matplotlib.pyplot as plt
+import sys
+import os
 from TwitterAPI import TwitterAPI
 from TwitterClient import TwitterClient
 from GoogleNLP import GoogleNLP
-from dotenv import load_dotenv
-import matplotlib.pyplot as plt
 
 
 def main():
@@ -32,15 +34,15 @@ def main():
 
         if len(topics) == 0:
             print(
-                "It seems like you didn't enter anything to compare. Please enter 2 items."
+                "\nIt seems like you didn't enter anything to compare. Please enter 2 items.\n"
             )
         elif len(topics) == 1:
             print(
-                "Ah... It looks like you only entered one thing to compare. Please enter another item with it."
+                "\nAh... It looks like you only entered one thing to compare. Please enter another item with it.\n"
             )
         elif len(topics) > 2:
             print(
-                "Woah! Someone is ambitious... this can only handle 2 items at a time."
+                "\nWoah! Someone is ambitious... this can only handle 2 items at a time.\n"
             )
 
     for plot, topic in enumerate(topics):
@@ -72,4 +74,17 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('\nThanks for using the program!\n')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
+    except EOFError:
+        print('\nThanks for using the program!\n')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
