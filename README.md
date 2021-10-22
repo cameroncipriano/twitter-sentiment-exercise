@@ -31,3 +31,12 @@ TWITTER_ACCESS_TOKEN=
 TWITTER_ACCESS_SECRET=
 ```
 5. Once you have completed the above steps, you should be able to run `python main.py` and begin the experience
+
+## 3. Is it Working?
+If you have done the above steps correctly, you should see similar outputs to these:
+
+Output from `python main.py`
+![](Screen%20Shot%202021-10-21%20at%209.36.30%20PM.png)
+
+Output once program is complete:
+![](Screen%20Shot%202021-10-21%20at%209.42.40%20PM.png)
