@@ -48,7 +48,8 @@ def main():
 
     # Creates a 2x1 subplot for each item being compared
     for plot, topic in enumerate(topics):
-        saved_tweets = twitter_client.search_for_tweets(topic, max_tweets)
+        saved_tweets = twitter_client.search_for_tweets(
+            topic.strip(), max_tweets)
         x_marks = [num + 1 for num in range(len(saved_tweets))]
 
         # tweet_dates = []
