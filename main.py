@@ -7,6 +7,23 @@ from TwitterClient import TwitterClient
 from GoogleNLP import GoogleNLP
 
 
+def get_topics():
+    # Small loop to ensure the user inputs the correct number of topics to compare
+    topics = []
+    while len(topics) != 2:
+        topics = input(
+            "Enter two products/companies/items you'd like to compare (comma separated):\n\n"
+        ).split(",")
+
+        if len(topics) == 0:
+            return "\nIt seems like you didn't enter anything to compare. Please enter 2 items.\n"
+        elif len(topics) == 1:
+            return "\nAh... It looks like you only entered one thing to compare. Please enter another item with it.\n"
+        elif len(topics) > 2:
+            return "\nWoah! Someone is ambitious... this can only handle 2 items at a time.\n"
+    return topics
+
+
 def main():
     # Load variables from a .env file
     load_dotenv()
@@ -16,25 +33,7 @@ def main():
 
     print("\n\nWelcome to the Comparison Sentiment Analyzer!\n\n")
 
-    # Small loop to ensure the user inputs the correct number of topics to compare
-    topics = []
-    while len(topics) != 2:
-        topics = input(
-            "Enter two products/companies/items you'd like to compare (comma separated):\n\n"
-        ).split(",")
-
-        if len(topics) == 0:
-            print(
-                "\nIt seems like you didn't enter anything to compare. Please enter 2 items.\n"
-            )
-        elif len(topics) == 1:
-            print(
-                "\nAh... It looks like you only entered one thing to compare. Please enter another item with it.\n"
-            )
-        elif len(topics) > 2:
-            print(
-                "\nWoah! Someone is ambitious... this can only handle 2 items at a time.\n"
-            )
+    topics = get_topics()
 
     max_tweets = -1
     while (max_tweets <= 10):
